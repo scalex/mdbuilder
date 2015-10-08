@@ -11,11 +11,11 @@ import java.util.Objects;
 /**
  * Created by gingray on 10/7/15.
  */
-public class MdbFileCreator {
+public class MdbFileProcessor {
     private String path;
     private Database db;
 
-    public MdbFileCreator(String path) throws IOException, SQLException {
+    public MdbFileProcessor(String path) throws IOException, SQLException {
         this.path = path;
         db = DatabaseBuilder.create(Database.FileFormat.V2000, new File(this.path));
 
