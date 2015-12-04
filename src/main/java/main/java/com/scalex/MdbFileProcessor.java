@@ -17,8 +17,10 @@ public class MdbFileProcessor {
 
     public MdbFileProcessor(String path) throws IOException, SQLException {
         this.path = path;
-        db = DatabaseBuilder.create(Database.FileFormat.V2000, new File(this.path));
-
+        db = new DatabaseBuilder(new File(this.path))
+          .setFileFormat(Database.FileFormat.V2000)
+          .setAutoSync(false)
+          .create();
     }
 
     public Table createTable(String tableName, String[] fields) throws SQLException, IOException {

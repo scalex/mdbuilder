@@ -23,10 +23,18 @@ public class CsvToMdbConverterTest {
     private URL pathMdb = getClass().getResource("/test_file.mdb");
 
     @Before
+    public void updatePaths(){
+       this.pathCsv = getClass().getResource("/test_file.csv");
+       this.pathMdb = getClass().getResource("/test_file.mdb");
+    }
+
+    @Before
     public void removeFileBefore(){
-        File file = new File(pathMdb.getPath());
-        if(file.exists()){
-            file.delete();
+        if (null != pathMdb) {
+            File file = new File(pathMdb.getPath());
+            if(file.exists()){
+                file.delete();
+            }
         }
     }
 
