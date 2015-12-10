@@ -52,7 +52,7 @@ public class CsvToMdbConverterTest {
     }
 
     @Test
-    public void mdbCheckWrotenRows() throws IOException, SQLException {
+    public void mdbCheckWrotenRows() throws IOException, SQLException, java.lang.InterruptedException {
         createTable("test_table");
         Database db = DatabaseBuilder.open(new File(pathMdb.getPath()));
         Table table = db.getTable("test_table");
